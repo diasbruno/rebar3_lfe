@@ -42,6 +42,7 @@ format_error(Reason) ->
 %% =============================================================================
 
 do_build(Provider, State) ->
+    io_lib:format("provider: ~p~nstate:~p~n", [Provider, State]),
     try rebar_relx:do(Provider, State)
     catch _:undef ->
       rebar_relx:do(rlx_prv_release, atom_to_list(Provider), Provider, State)
