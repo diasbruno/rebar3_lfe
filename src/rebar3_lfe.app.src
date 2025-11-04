@@ -4,8 +4,7 @@
   {registered, []},
   {applications, [
     kernel,
-    stdlib,
-    lfe]},
+    stdlib]},
   {env,[]},
   {modules, [
     rebar3_lfe,

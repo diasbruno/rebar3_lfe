@@ -15,7 +15,7 @@
 ]).
 -endif.
 
--include_lib("rebar3_lfe/include/r3lfe.hrl").
+-include_lib("../include/r3lfe.hrl").
 
 -define(PROVIDER, ltest).
 -define(DEPS, [{?NAMESPACE, compile}]).

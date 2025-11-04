@@ -16,7 +16,7 @@
     validate_module_name/1
 ]).
 
--include_lib("rebar3_lfe/include/r3lfe.hrl").
+-include_lib("../include/r3lfe.hrl").
 
 -type package_info() :: #{
     source_file := file:filename(),      % Original nested file
@@ -201,6 +201,7 @@ prepare_package_files(NestedFiles) ->
 -spec prepare_single_package(file:filename(), file:filename()) ->
     {ok, package_info()} | {error, term()}.
 prepare_single_package(SourceFile, SourceDir) ->
+    io:format("rebar preparing package: ~p -- ~p~n", [SourceFile, SourceDir]),
     ModuleName = calculate_module_name(SourceFile, SourceDir),
 
     %% Validate module name

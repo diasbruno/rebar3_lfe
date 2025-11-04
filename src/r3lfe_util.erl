@@ -15,7 +15,7 @@
 ]).
 -endif.
 
--include_lib("rebar3_lfe/include/r3lfe.hrl").
+-include_lib("../include/r3lfe.hrl").
 
 %%====================================================================
 %% API functions
@@ -98,8 +98,7 @@ extract_name(Name) when is_atom(Name) ->
     Name;
 extract_name({Name, _}) when is_atom(Name) ->
     Name;
-extract_name(Other) ->
-    ?DEBUG("Unexpected plugin format: ~p", [Other]),
+extract_name(_Other) ->
     unknown.
 
 %% @doc Get the version of a plugin from loaded app or from .app file in plugins dir.

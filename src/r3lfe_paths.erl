@@ -10,7 +10,7 @@
     ensure_dir/1
 ]).
 
--include_lib("rebar3_lfe/include/r3lfe.hrl").
+-include_lib("../include/r3lfe.hrl").
 
 %% Exported for testing
 -ifdef(TEST).
@@ -72,13 +72,13 @@ with_paths(Fun, State) ->
 %% not just its parent
 -spec ensure_dir(file:filename()) -> ok | {error, term()}.
 ensure_dir(Dir) ->
+    io:format("rebar ensure dir: ~p~n", [Dir]),
     case filelib:is_dir(Dir) of
         true ->
             ok;
         false ->
             case file:make_dir(Dir) of
                 ok ->
-                    ?DEBUG("Created directory: ~s", [Dir]),
                     ok;
                 {error, eexist} ->
                     %% Race condition - directory was created between check and make_dir
