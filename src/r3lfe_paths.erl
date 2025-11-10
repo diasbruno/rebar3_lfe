@@ -72,7 +72,6 @@ with_paths(Fun, State) ->
 %% not just its parent
 -spec ensure_dir(file:filename()) -> ok | {error, term()}.
 ensure_dir(Dir) ->
-    io:format("rebar ensure dir: ~p~n", [Dir]),
     case filelib:is_dir(Dir) of
         true ->
             ok;

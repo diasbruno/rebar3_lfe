@@ -201,7 +201,6 @@ prepare_package_files(NestedFiles) ->
 -spec prepare_single_package(file:filename(), file:filename()) ->
     {ok, package_info()} | {error, term()}.
 prepare_single_package(SourceFile, SourceDir) ->
-    io:format("rebar preparing package: ~p -- ~p~n", [SourceFile, SourceDir]),
     ModuleName = calculate_module_name(SourceFile, SourceDir),
 
     %% Validate module name
